@@ -1,0 +1,16 @@
+{% load static %}
+<!-- Sponorship -->
+<section class="md:mx-20 mx-3 py-3 md:py-6 text-center">
+  <h4 class="font-bold text-3xl md:text-4xl font-['nato'] py-3">Meet Our <span
+      class="text-[#3172C6]">Partners</span></h4>
+    <div class="rounded-bl-3xl rounded-tr-3xl bg-white p-4 shadow-lg">
+      <div class="sponsor owl-carousel">
+        {% for sponsor in sponsors_team %}
+        <div class="flex justify-center items-center md:h-56">
+          <img class="w-32 md:h-full h-52" src="{{sponsor.image.url}}" alt="">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
+<!-- End sponorship -->

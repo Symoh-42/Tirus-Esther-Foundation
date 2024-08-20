@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} | {{project.slug}}{% endblock %} 
+{% block content %}
+
+    <!-- single blog -->
+    <section
+        style="background-image: url(/static/images/vuu5pficb_Photo_of_the_week___Kenya.jpg); background-repeat: no-repeat; background-size: cover;"
+        class="">
+        <div class="flex flex-col justify-center items-center py-20">
+            <h4 class="text-center text-7xl font-semibold font-['Noto']"><span class="text-white">{{project.title}}</h4>
+            <p class="text-center text-white py-5 px-44 text-lg">T & E • Projects • {{project.title}}</p>
+        </div>
+    </section>
+    <!-- End single blog Image -->
+
+    <section class="px-32 py-6 flex space-x-8">
+        <img class="h-1/2 w-1/2 rounded-bl-3xl rounded-tr-3xl shadow-lg"
+            src="{{project.main_image.url}}" alt="">
+        <div class="">
+            <h1 class="text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Gallery
+            </h1>
+            <p class="my-2 text-gray-500 dark:text-gray-400">Various picture taken from the same event.</p>
+            <div class="grid grid-cols-2 gap-2">
+                {% for other_images in other_images %}
+                <img class="rounded-bl-3xl rounded-tr-3xl shadow-lg"
+                    src="{{other_images.other_project_images.url}}"
+                    alt="">
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="px-32">
+        <h1 class="text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Description:
+        </h1>
+        <hr class="py-3">
+        <div class="">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white lg:text-4xl">{{project.title}}</h2>
+
+            <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">
+                {{project.description}}
+            </p>
+        </div>
+    </section>
+
+{% endblock content %}

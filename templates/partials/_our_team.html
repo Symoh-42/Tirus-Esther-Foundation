@@ -1,0 +1,26 @@
+{% load static %}
+<section>
+    <div class="md:mx-20 mx-3 text-center">
+        <h4 class="font-bold text-3xl md:text-4xl font-['nato'] py-3">Meet Our <span class="text-[#3172C6]"> Team</span></h4>
+        <div class="">
+            <div class="team owl-carousel">
+                {% for team in team %}
+                <div class="py-4 px-2">
+                    <img class="rounded-tr-3xl h-72" src="{{team.image.url}}" alt="">
+                    <div class="shadow-lg w-full rounded-bl-3xl">
+                        <h4 class="uppercase font-semibold font-['Nato'] text-xl">{{team.name}}</h4>
+                        <p class="text-gray-500 font=['Barlow'] py-3">{{team.position}}</p>
+                    </div>
+                    <!-- <p class="text-gray-500 px-2 pb-6">{{team.description}}</p> -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- <div class="flex justify-center items-center ">
+            <a href="{% url 'leadership' %}" class="uppercase bg-blue-500 text-white text-sm font-semibold py-3 px-4 rounded-r-3xl rounded-b-3xl md:my-2 shadow"> 
+                <i class="fa-regular fa-circle-right pr-2"></i> View All
+            </a>
+        </div> -->
+    </div>
+</section>

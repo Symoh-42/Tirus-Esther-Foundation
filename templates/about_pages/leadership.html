@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Leadership {% endblock %} 
+{% block content %}
+
+<section class="relative h-44 overflow-hidden md:h-96">
+    <!-- Item 1 -->
+   <div class="duration-700 ease-in-out" data-carousel-item>
+       <img src="{% static 'images/leadership.jpg' %}" class="absolute block w-full md:-translate-y-20" alt="...">
+       <div class="absolute bg-black inset-0 opacity-20 h-40 md:h-96"></div>
+    </div>
+</section>
+
+<section class="hidden md:block md:px-52 px-4 my-5 space-y-12">
+    {% for team in team %}
+    {% if forloop.counter|divisibleby:2 %}
+    
+    <div class="grid grid-cols-2 gap-3 md:gap-0">
+        <img class="h-3/4 md:w-3/4 h-full rounded-bl-3xl rounded-tr-3xl shadow-lg" src="{{team.image.url}}" alt="">
+        <div class="flex flex-col space-y-2 md:-mx-20 md:text-left">
+            <h6 class="font-bold text-xl uppercase font-['Nato']">{{team.name}}</h6>
+            <div class="flex space-x-8">
+                <h6 class="font-semibold text-lg uppercase text-[#3373c7] ">{{team.position}}</h6>
+                
+            </div>
+            <p class="text-sm">{{team.description}}</p>
+        </div>
+    </div>
+    {% else %}
+
+    <div class="grid grid-cols-2 gap-3 md:gap-0">
+        <div class="flex flex-col space-y-2">
+            <h6 class="font-bold text-xl uppercase font-['Nato']">{{team.name}}</h6>
+            <div class="flex space-x-8">
+                <h6 class="font-semibold text-lg uppercase text-[#3373c7] ">{{team.position}}</h6>
+                
+            </div>
+            <p class="text-sm">
+                {{team.description}}
+            </p>
+        </div>
+        <img class="h-3/4 md:w-3/4 h-full rounded-bl-3xl rounded-tr-3xl shadow-lg md:ml-20" src="{{team.image.url}}" alt="">
+    </div>
+
+    {% endif %}
+    {% endfor %}
+</section>
+
+<section class="md:hidden block md:px-3/4 px-4 my-5 space-y-4">
+    {% for team in team %}
+    <div class="grid md:grid-cols-2 gap-3 md:gap-0">
+        
+        <img class="md:h-72 md:w-3/4 h-full rounded-bl-3xl rounded-tr-3xl shadow-lg" src="{{team.image.url}}" alt="">
+
+        <div class="flex flex-col space-y-2 md:-mx-20 md:text-left">
+            <h6 class="font-bold text-2xl font-['Advent+Pro'] uppercase font-['Nato'] text-center italic pb-2">{{team.name}}</h6>
+            <div class="flex space-x-8">
+                <h6 class="font-semibold text-lg uppercase text-[#3373c7] ">{{team.position}}</h6>
+                
+            </div>
+            
+            <p class="text-sm">{{team.description}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+Technical Support Specialist: Providing technical assistance to customers regarding product features, 
+                            installation, troubleshooting, and maintenance, both in-person and over the phone/email.
+
+UX/UI Designer: Focusing on creating user-friendly and visually appealing interfaces for showroom websites, mobile apps, 
+                and digital platforms to enhance the customer experience and drive engagement.
+
+Digital Marketing Specialist: Leveraging their understanding of algorithms and analytics, digital marketing specialists can optimize online advertising campaigns, manage social media accounts, 
+                                and utilize search engine optimization (SEO) techniques to drive online traffic and sales.
+
+Software Developer: Developing custom software solutions tailored to the specific needs of the showroom, such as inventory management systems, 
+                    customer relationship management (CRM) software, or sales tracking tools.
+
+IT Support Specialist: Responsible for managing and troubleshooting the showroom's IT infrastructure, including hardware, software, and network systems. 
+                    This role ensures that all computer systems and technology within the showroom operate smoothly and efficiently.
+
+Data Analyst: Utilizing their skills in data analysis and programming, a data analyst can analyze customer data, sales trends, 
+                and inventory levels to provide insights that drive strategic decision-making and optimize business operations.
+
+
+<svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M5 10.2c.6 0 1 .4 1 1v.2l6 3.5 6-3.5v-.2a1 1 0 1 1 2 0v.8c0 .4-.2.7-.5.9l-7 4a1 1 0 0 1-1 0l-7-4A1 1 0 0 1 4 12v-.8c0-.6.5-1 1-1Zm0 5c.6 0 1 .4 1 1v.2l6 3.4 6-3.4V16a1 1 0 1 1 2 0v.9c0 .3-.2.6-.5.8l-7 4a1 1 0 0 1-1 0l-7-4A1 1 0 0 1 4 17v-1c0-.5.4-1 1-1Z"
+                                    clip-rule="evenodd" />
+                                <path
+                                    d="M12.5 2.1a1 1 0 0 0-1 0l-7 4a1 1 0 0 0 0 1.8l7 4c.3.2.7.2 1 0l7-4a1 1 0 0 0 0-1.7l-7-4Z" />
+                            </svg>

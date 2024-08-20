@@ -1,0 +1,106 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title%} | {{blog.title}}{% endblock %} 
+{% block content %}
+
+<section class="relative h-44 overflow-hidden md:h-96">
+    <!-- Item 1 -->
+   <div class="duration-700 ease-in-out" data-carousel-item>
+       <img src="{% static 'images/vuu5pficb_Photo_of_the_week___Kenya.jpg' %}" class="absolute block w-full md:-translate-y-20" alt="...">
+       <div class="absolute bg-black inset-0 opacity-20 h-40 md:h-96"></div>
+    </div>
+</section>
+
+{% include 'partials/_alerts.html' %}
+<!-- Blogs Components -->
+<section class="md:py-6 md:px-20 px-2">
+    <!-- Project -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 py-10">
+        <div class="col-span-2">
+            <div class="relative rounded-tr-3xl hover:shadow bg-white">
+                <img width="850" height="450" class="rounded-bl-3xl shadow rounded-tr-3xl hover:scale-124 ease-in duration-500 w-full" src="{{blog.cover_image.url}}" alt=""/>
+            </div>
+            <div class="bg-white shadow rounded-bl-3xl pt-3 px-6 hover:shadow ">
+                <p class="text-sm text-gray-400">{{blog.updated_at}}</p>
+                
+                <div class="flex justify-between py-3 text-gray-700">
+                    <h4><i class="fa-solid fa-user-tie pr-2"></i>{{blog.author}}</h4>
+                    <h4><i class="fa-solid fa-message pr-2"></i>{{comments.blog.count}} Comments</h4>
+                </div>
+                <hr class="py-2">
+                <h2 class="text-4xl font-['Noto'] font-semibold py-2">{{blog.title}}</h2>
+                <p class="py-5 text-sm text-gray-600">{{ blog.blog_description |safe }}</p>
+
+                <hr class="py-2">
+                <div class="flex justify-between py-3 text-gray-700">
+                    <div class="grid grid-cols-4">
+                        <h6 class="rounded-full bg-[#F2EFEA] px-2 py-1 text-md font-light text-gray-800 text-center">Beautiful</h6>
+                    </div>
+                    <h4><i class="fa-solid fa-message pr-2"></i>{{comments.blog.count}} Comments</h4>
+                </div>
+            </div>
+            <div class="bg-white mt-8 py-4 px-2 md:px-16 rounded-bl-3xl rounded-tr-3xl shadow">
+                <h4 class="font-bold text-4xl font-['nato'] py-3">{{comments.blog.count}} Comments</h4>
+                <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+                    <li>
+                        {% for comment in comments %}
+                        <div class="text-gray-600 dark:text-gray-400">
+                            <div class="text-base font-normal">
+                                <span class="font-semibold text-gray-900">{{comment.name}}</span>
+                                <time class="text-xs font-medium text-gray-900 mx-10">{{comment.updated_at}}</time>
+                            </div>
+                            <div class="text-sm font-normal">"{{comment.comment}}"</div>
+                            <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                                <svg class="w-2.5 h-2.5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19ZM8.374 17.4a7.6 7.6 0 0 1-5.9-7.4c0-.83.137-1.655.406-2.441l.239.019a3.887 3.887 0 0 1 2.082 2.5 4.1 4.1 0 0 0 2.441 2.8c1.148.522 1.389 2.007.732 4.522Zm3.6-8.829a.997.997 0 0 0-.027-.225 5.456 5.456 0 0 0-2.811-3.662c-.832-.527-1.347-.854-1.486-1.89a7.584 7.584 0 0 1 8.364 2.47c-1.387.208-2.14 2.237-2.14 3.307a1.187 1.187 0 0 1-1.9 0Zm1.626 8.053-.671-2.013a1.9 1.9 0 0 1 1.771-1.757l2.032.619a7.553 7.553 0 0 1-3.132 3.151Z"/>
+                                </svg>
+                                Public
+                            </span> 
+                        </div>
+                        {% endfor %}
+                    </li>
+                </ol>
+                <hr class="my-2">
+                <h4 class="font-bold text-4xl font-['nato'] py-3">Leave a Reply</h4>
+                <p class="text-gray-500 py-2">Your email address will not be published. Required fields are marked *</p>
+                <form method="POST" class="" action="{% url 'single_blogs' blog.slug %}">
+                    {% csrf_token %}
+                    <div class="my-3">
+                        <div class="w-full">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Your name</label>
+                            {{comment_form.name}}
+                        </div>
+                    </div>
+
+                    <div class="my-3">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Your message</label>
+                        {{comment_form.comment}}
+                    </div>
+                    <button type="submit" class="text-white bg-yellow-300 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Post Comment</button>
+                </form>
+            </div>
+        </div>  
+        <div class="col-span-2">
+            <div class="bg-white rounded-bl-3xl rounded-tr-3xl py-4 px-6 shadow">
+                <h4 class="text-2xl font-semibold font-['Noto']">Recent Posts</h4>
+                <div class="rounded w-28 h-1 bg-orange-400"></div>
+                {% for blog in blogs %}
+                <div class="flex justify-between space-x-2 py-4">
+                    <a target="_blank" href="{% url 'single_blogs' blog.slug %}">
+                        <img class="w-20 h-20 rounded-full" src="{{blog.cover_image.url}}" alt="">
+                    </a>
+                    <a target="_blank" href="{% url 'single_blogs' blog.slug %}">
+                        <div class="flex flex-col">
+                            <h6>{{blog.updated_at}}</h6>
+                            <h6 class="text-lg font-semibold font-['Noto'] text-gray-700">{{blog.title | truncatechars_html:100}}</h6>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- End program -->
+</section>
+<!-- End Blogs Components -->
+{% endblock content %}

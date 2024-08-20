@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} | Programs{% endblock %} 
+{% block content %}
+    
+    <section class="relative h-44 overflow-hidden md:h-96">
+        <!-- Item 1 -->
+       <div class="duration-700 ease-in-out" data-carousel-item>
+           <img src="{% static 'images/vuu5pficb_Photo_of_the_week___Kenya.jpg' %}" class="absolute block w-full md:-translate-y-20" alt="...">
+           <div class="absolute bg-black inset-0 opacity-20 h-40 md:h-96"></div>
+        </div>
+    </section>
+
+    <!-- Programs Components -->
+    <section class="py-6 px-3 md:px-20">
+        <h4 class="text-center text-3xl md:text-4xl font-semibold font-['Noto']">Our Programs</h4>
+        <p class="text-center px-6 md:px-44">It’s our mission to help people reduce their poverty by a huge number of helpful campaigns to make it essential.</p>
+        <!-- Project -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 py-10">
+            {% for program in programs %}
+            <div class="hover:shadow-xl">
+                <a href="{% url 'single_program' program.slug %}">
+                    <div class="relative bg-white rounded-tr-3xl hover:shadow shadow">
+                        <img class="rounded-bl-3xl rounded-tr-3xl hover:scale-124 ease-in duration-500 w-full h-52" src="{{program.main_image.url}}" alt=""/>
+                        {% if program.completed %}
+                        <span class="absolute uppercase top-0 left-0 z-10 mt-3 ml-3 inline-flex select-none rounded-full bg-green-600 px-2 py-1 text-xs font-semibold text-white">Completed</span>
+                        {% endif %}
+                        {% if program.in_progress %}
+                        <span class="absolute uppercase top-0 left-0 z-10 mt-3 ml-3 inline-flex select-none rounded-full bg-orange-600 px-2 py-1 text-xs font-semibold text-white">In Progress</span>
+                        {% endif %}
+                        <a href=""><span class="absolute uppercase top-0 right-0 z-10 mt-3 mr-3 inline-flex select-none rounded bg-red-600 p-1 text-white"><i class="fa-solid fa-play"></i></span></a>
+                    </div>
+                    <div class="bg-white shadow rounded-bl-3xl pt-3 hover:shadow">
+                        <h2 class="text-lg md:text-2xl font-['Noto'] font-semibold md:px-6 px-2">{{program.title}}</h2>
+                        <p class="py-5 text-sm text-gray-600 md:px-6 px-2">{{ program.description| truncatechars_html:120|safe}}</p>
+                        
+                        <div class="flex flex-row-reverse md:pt-2">
+                            <a href="{% url 'single_program' program.slug %}" class="uppercase bg-black text-white text-sm font-semibold py-4 px-6 rounded-tl-full"> 
+                                <i class="fa-regular fa-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>  
+            {% endfor %} 
+            
+        </div>
+        <!-- End program -->
+    </section>
+    <!-- End programs Components -->
+
+{% endblock content %}

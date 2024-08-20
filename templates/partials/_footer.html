@@ -1,0 +1,96 @@
+{% load static %}
+<!-- Footer -->
+<footer class="bg-[#2A261F] py-12">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 px-3 md:px-20">
+        <!-- Logo -->
+        <div class="md:-ml-32">
+            <a class="flex flex-col md:flex-row md:justify-center md:items-center" href="/">
+                <img class="h-32" src="{{settings.main_logo.url}}" alt="">
+                <h6 class="pt-0 pt-4 md:-mx-10 -mt-14 text-[#3373c7] font-['Yeseva+one'] font-bold text-2xl">Tirus & Esther</h6>
+                <p class="font-['Montserrat'] md:-mx-[90px] text-[#ff4444] font-semibold">FOUNDATION</p></a>
+            
+        </div>
+        
+        <!--  -->
+        <div class="">
+            <h6 class="font-['Nato'] text-white text-2xl">Visit Us Today.</h6>
+            <a target="_blank" href="https://maps.app.goo.gl/3Cmdpdo8txWMTjq27" class="text-white pb-4">Muthaiga Square - Thika Road <br> Wing B Rm 203</a>
+            <hr>
+        </div>
+
+        <div class="text-white">
+            <h6 class="font-['Nato'] text-white text-2xl">Quick Links</h6>
+            <ul class="flex flex-col font-medium space-y-2 py-6">
+                <li>
+                    <a href="{% url 'contact' %}" class="hover:text-yellow-500">Work With Us</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="hover:text-yellow-500">Who We Are</a>
+                </li>
+                <li>
+                    <a href="{% url 'leadership' %}" class="hover:text-yellow-500">Our Team</a>
+                </li>
+                <li>
+                    <a href="{% url 'blogs' %}" class="hover:text-yellow-500">Latest Stories</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="text-white">
+            <h6 class="font-['Nato'] text-white text-2xl">Resources</h6>
+            <ul class="flex flex-col font-medium space-y-2 py-6">
+                <li>
+                    <a href="{% url 'programs' %}" class="hover:text-yellow-500">Programs</a>
+                </li>
+                <!-- <li>
+                    <a href="{% url 'projects' %}" class="hover:text-yellow-500">Projects</a>
+                </li> -->
+                <li>
+                    <a href="{% url 'blogs' %}" class="hover:text-yellow-500">Blogs</a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}" class="hover:text-yellow-500">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Socials -->
+        <div class="text-white">
+            <h6 class="font-['Nato'] text-white text-2xl">Connect With Us</h6>
+            
+            <ul class="flex justify-center md:space-x-6 space-x-4 py-3">
+                <li class="">
+                    <a target="_blank" href="{{settings.facebook}}"><i class="fa-brands fa-square-facebook text-[#17A9FD]"></i></a>
+                </li>
+                <li class="">
+                    <a target="_blank" href="{{settings.instagram}}"><i class="fa-brands fa-square-instagram text-[#C13584]"></i></a>
+                </li>
+                <li class="">
+                    <a target="_blank" href="{{settings.twitter}}"><i class="fa-brands fa-square-x-twitter"></i></a>
+                </li>
+                <li class="">
+                    <a target="_blank" href="{{settings.tiktok}}"><i class="fa-brands fa-tiktok"></i></a>
+                </li>
+                <li class="">
+                    <a target="_blank" href="{{settings.pinterest}}"><i class="fa-brands fa-linkedin text-[#0A66C2]"></i></a>
+                </li>
+                <li class="">
+                    <a target="_blank" href="https://www.youtube.com/@Tirus_and_Esther_Foundation"><i class="fa-brands fa-youtube text-[#FF0000]"></i></a>
+                </li>
+            </ul>
+
+            <p class="text-[#FF9F0D] py-3">
+                <a href="tel:{{ settings.phone }}"><i class="fa-solid fa-phone pr-2"></i>{{ settings.phone }}</a>
+                <a href="mailto:{{settings.mail_account}}" class="text-white">{{settings.mail_account}}</a><br>
+                <a href="">P.O BOX 2344-00900</a>
+            </p>
+        </div>
+    </div>
+
+</footer>
+
+<footer class="bg-[#24211B] px-3 py-2 text-gray-300">
+    <div class="flex flex-col md:flex-row justify-between md:px-20">
+        <p>© <span id="date"></span> – <span class="text-[#ff9f0d]">Tirus & Esther Foundation</span>. All rights reserved.</p>
+        <p><span class="text-[#ff9f0d]">Carefully crafted by</span> <a href="https://gbt.co.ke/">Greenbear Technologies.</a></p>
+    </div>
+</footer>

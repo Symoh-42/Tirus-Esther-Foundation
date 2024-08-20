@@ -1,0 +1,210 @@
+{% extends 'dashboard_pages/base.html' %}
+{% load static %}
+{% block title %} | Admin{% endblock %}
+{% block content %}
+<div class="bg-white shadow rounded-tr-3xl rounded-bl-3xl mt-2 p-4 sm:p-6 xl:p-8 ">
+    {% include 'partials/_alerts.html' %}
+    <!-- Navbar -->
+    <nav class="flex mb-5" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-2">
+            <li class="inline-flex items-center">
+                <a href="#" class="text-gray-700 hover:text-gray-900 inline-flex items-center">
+                    <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                        </path>
+                    </svg>
+                    Home
+                </a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="#" class="text-gray-700 hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium">Settings</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="#" class="text-gray-700 hover:text-gray-900 ml-1 md:ml-2 text-sm font-medium">Listings</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-400 ml-1 md:ml-2 text-sm font-medium" aria-current="page">Edit Settings</span>
+                </div>
+            </li>
+        </ol>
+    </nav>
+
+    <h3 class="text-xl leading-none font-bold text-gray-900 mb-10">Add Edit Settings</h3>
+    <div class="block w-full overflow-x-auto">
+        <form enctype="multipart/form-data" action="{% url 'edit_settings' setting.id %}" novalidate method="POST"  class="mx-8">
+
+            {% csrf_token %}
+            <h1 style="font-family: Marcellus;" class="text-md font-semibold text-gray-900 mt-4 underline">General Accounts Settings</h1>
+            <div class="-mx-2 grid grid-cols-2 gap-4 mt-4">
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-solid fa-phone text-gray-900 mr-2"></i>Phone Number</label>
+                    {{form.phone}}    
+                    {% for field in form.phone.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}
+                </div>
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-whatsapp text-gray-900 mr-2"></i>Whatsapp Number</label>
+                    {{form.phone2}}    
+                    {% for field in form.phone2.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}    
+                </div>
+
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-solid fa-location text-gray-900 mr-2"></i>Google Map Link</label>
+                    {{form.google_map}}  
+                    {% for field in form.google_map.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-solid fa-location text-gray-900 mr-2"></i>Location Address</label>
+                    {{form.location}}  
+                    {% for field in form.location.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-solid fa-location text-gray-900 mr-2"></i>Main Logo</label>
+                    {{form.main_logo}}  
+                    {% for field in form.main_logo.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+
+                <div class="flex-1 px-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-solid fa-envelope text-gray-900 mr-2"></i>Mail</label>
+                    {{form.mail_account}}  
+                    {% for field in form.mail_account.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}   
+                </div>
+                
+            
+            </div>
+
+            <h1 style="font-family: Marcellus;" class="text-md font-semibold text-gray-900 mt-4 underline">About us</h1>
+            <div class="-mx-2 grid grid-cols-2 gap-4 mt-4 px-2">
+                <div class="col-span-2">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900">About Us</label>
+                    {{form.about}}
+                    {% for field in form.about.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+                <div class="">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Our Vision</label>
+                    {{form.vision}}
+                    {% for field in form.vision.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}      
+                </div>
+                <div class="">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Our Mission</label>
+                    {{form.mission}}
+                    {% for field in form.mission.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+                <div class="">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Our Core Values</label>
+                    {{form.core}}
+                    {% for field in form.core.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+                <div class="">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Our Objectives</label>
+                    {{form.media}}
+                    {{form.objectives}}
+                    {% for field in form.objectives.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+            </div>
+
+            <h1 style="font-family: Marcellus;" class="text-md font-semibold text-gray-900 mt-8 underline">Social Accounts</h1>
+                
+            <div class="-mx-2 grid grid-cols-2 gap-4 mt-4">
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-facebook text-gray-100 p-2 bg-[#4267B2] mr-2"></i>Facebook</label>
+                    {{form.facebook}}
+                    {% for field in form.facebook.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+
+                <div class="flex-1 px-2">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-tiktok text-gray-100 p-2 bg-gray-800 mr-2"></i>Tiktok</label>
+                    {{form.tiktok}}
+                    {% for field in form.tiktok.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+
+                <div class="flex-1 px-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-instagram text-gray-100 p-2 bg-[#d62976] mr-2"></i>Instagram</label>
+                    {{form.instagram}}
+                    {% for field in form.instagram.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+                <div class="flex-1 px-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-x-twitter text-gray-100 p-2 bg-[#1DA1F2] mr-2"></i>Twitter</label>
+                    {{form.twitter}}
+                    {% for field in form.twitter.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+                <div class="flex-1 px-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-youtube text-gray-100 p-2 bg-[#FF0000] mr-2"></i>Youtube</label>
+                    {{form.youtube}}
+                    {% for field in form.youtube.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+
+                <div class="flex-1 px-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm text-gray-600"><i class="fa-brands fa-linkedin text-gray-100 p-2 bg-[#0A66C2] mr-2"></i>Linkedin</label>
+                    {{form.pinterest}}
+                    {% for field in form.youtube.errors %}
+                        <p class="text-xs text-red-600"> {{ field }} </p>
+                    {% endfor %}  
+                </div>
+            </div>
+            
+            <button type="submit" class="w-full shadow px-6 py-3 mt-4 text-xs font-medium tracking-wide text-white uppercase transition-colors duration-300 transform bg-blue-500 rounded-r-3xl rounded-b-3xl hover:bg-blue-400 focus:outline-none focus:ring focus:ring-sky-300 focus:ring-opacity-50">
+                Update
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

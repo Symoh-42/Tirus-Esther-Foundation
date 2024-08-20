@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Stories cards {% endblock %} 
+{% block content %}
+    <section class="relative h-44 overflow-hidden md:h-96">
+        <!-- Item 1 -->
+    <div class="duration-700 ease-in-out" data-carousel-item>
+        <img src="{% static 'images/vuu5pficb_Photo_of_the_week___Kenya.jpg' %}" class="absolute block w-full md:-translate-y-20" alt="...">
+        <div class="absolute bg-black inset-0 opacity-20 h-40 md:h-96"></div>
+        </div>
+    </section>
+
+    <section class="md:px-52 px-4 my-5 space-y-12 hidden md:block">
+        {% for story in stories %}
+        {% if forloop.counter|divisibleby:2 %}
+        
+        <div class="grid md:grid-cols-2">
+            <img class="md:h-72 md:w-3/4 h-full rounded-bl-3xl rounded-tr-3xl shadow-lg" src="{{story.image.url}}" alt="">
+            <div class="flex flex-col space-y-2 md:-mx-20 text-center md:text-left md:mt-0 mt-2">
+                <h4 class="text-center font-['Advent+Pro'] text-2xl italic md:py-2">The <span class="text-blue-600">Story</span> of <span class="">{{story.name}}</span></h4>
+                
+                <h6 class="font-semibold text-lg uppercase text-[#3373c7] ">{{story.position}}</h6>
+                <p class="text-sm">{{story.description}}</p>
+            </div>
+        </div>
+        {% else %}
+    
+        <div class="grid grid-cols-2">
+            <div class="flex flex-col space-y-2">
+                <h4 class="text-center font-['Advent+Pro'] text-2xl italic md:py-2">The <span class="text-blue-600">Story</span> of <span class="">{{story.name}}</span></h4>
+                <h6 class="font-semibold text-lg uppercase text-[#3373c7] ">{{story.position}}</h6>
+                <p class="text-sm">
+                    {{story.description}}
+                </p>
+            </div>
+            <img class="h-72 w-3/4 rounded-bl-3xl rounded-tr-3xl shadow-lg ml-20" src="{{story.image.url}}" alt="">
+        </div>
+    
+        {% endif %}
+        {% endfor %}
+    </section>
+
+    <section class="md:px-52 px-4 my-5 space-y-4 md:hidden block">
+        {% for story in stories %}
+        <div class="grid md:grid-cols-2">
+            <h4 class="text-center font-['Advent+Pro'] text-5xl italic md:py-6 py-2">The <span class="text-blue-600">Story</span> of 
+            <br><span class="text-2xl">{{story.name}}</span></h4>
+            <h6 class="font-bold text-2xl font-['Advent+Pro'] uppercase font-['Nato'] text-center italic pb-2"></h6>
+            <img class="md:h-72 md:w-3/4 h-full rounded-bl-3xl rounded-tr-3xl shadow-lg" src="{{story.image.url}}" alt="">
+            <div class="flex flex-col space-y-2 md:-mx-20 text-center md:text-left md:mt-0 mt-2">
+                
+                <h6 class="font-semibold text-lg uppercase text-[#3373c7] ">{{story.position}}</h6>
+                <p class="text-sm">{{story.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+{% endblock content %}

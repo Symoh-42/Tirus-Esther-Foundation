@@ -1,0 +1,91 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO -->
+    <meta name="description"
+        content="Enter a brief and relevant description of your website here, including foundational keywords.">
+    <meta name="keywords"
+        content="foundation keyword 1, foundation keyword 2, foundation keyword 3, other relevant keywords">
+    <meta name="author" content="Your Name">
+    <title>TIRUS & ESTHER FOUNDATION: | {% block title %}{% endblock %}</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Noto+Serif&display=swap" rel="stylesheet">
+    <!-- Add your CSS links or styles here -->
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Toast CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+        integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
+        integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="bg-gray-50 font-['Barlow']">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQTXJ7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- Navbar -->
+    {% include 'dashboard_pages/partials/_navbar.html' %}
+    <!-- End navbar -->
+
+    <div class="flex overflow-hidden bg-white pt-16">
+        <!-- Aside -->
+        {% include 'dashboard_pages/partials/_aside.html' %}
+        <!-- End aside -->
+
+
+        <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
+            <main>
+                <div class="pt-6 px-4">
+                    <!-- Sections -->
+                    {% block content %}
+                    {% include 'dashboard_pages/partials/_alerts.html' %}
+                    {% endblock %}
+                    <!-- End sections -->
+                </div>
+            </main>
+
+            <!-- Footer -->
+            {% include 'dashboard_pages/partials/_footer.html' %}
+            <!-- End footer -->
+
+            <p class="text-center text-sm text-gray-500 my-10">
+                © <span id="date"></span> <a href="https://gbt.co.ke" class="hover:underline"
+                    target="_blank">Created by Greenbear Technologies</a>. TIRUS & ESTHER FOUNDATION All
+                rights reserved.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Flowbite CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | About Tirus and Esther Foundation{% endblock %} 
+{% block content %}
+
+    <section class="relative h-44 overflow-hidden md:h-96">
+        <!-- Item 1 -->
+       <div class="duration-700 ease-in-out" data-carousel-item>
+           <img src="{% static 'images/about.jpg' %}" class="absolute block w-full md:-translate-y-20" alt="...">
+           <div class="absolute bg-black inset-0 opacity-20 h-40 md:h-96"></div>
+        </div>
+    </section>
+    
+    <section class="py-4" style="background-image: url(/static/svg/9e6de3f8-c194-416e-a56b-c526ab8c22a3.svg); background-repeat: no-repeat; background-size: cover;">
+        <div class="md:mx-20 shadow-lg md:px-20 mx-3 px-2 py-6 flex flex-col justify-center items-center text-center rounded-bl-3xl rounded-tr-3xl bg-white">
+            <!-- <h4 class="uppercase font-semibold font-['Nato'] text-[#3172C6]">Our Story</h4> -->
+            <h4 class="font-bold text-2xl md:text-4xl font-['nato'] py-3">Who We <span class="text-[#3172C6]">Are</span>
+                
+            </h4>
+            <p class="text-gray-500 md:px-20 font=['Barlow'] py-2">
+                {{settings.about}}
+            </p>
+        </div>
+    </section>
+
+    <!-- Core, mission, vision -->
+    <section class="">
+        <div class="px-3 md:px-20 md:mx-20 mx-4 md:py-6 py-2 md:flex md:flex-col justify-center items-center rounded-bl-3xl rounded-tr-3xl shadow-lg-lg bg-white">
+            <div class="">
+                <!-- <h4 class="uppercase font-semibold font-['Nato'] text-[#3172C6] text-center"> & </h4> -->
+                <!-- <h4 class="font-bold text-lg md:text-4xl font-['nato'] py-3 text-center">Mission <span class="text-[#3172C6]"> & Vision</span> </h4> -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- <h4 class="uppercase font-semibold font-['Nato'] text-lg">CORE PURPOSE:</h4> -->
+                    <!-- <p class="text-gray-500 font=['Barlow'] py-2">
+                        {{settings.core}}
+                    </p> -->
+                    <div class="">
+                    <h4 class="uppercase font-semibold font-['Nato'] text-lg">MISSION:</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        {{settings.mission}}
+                    </p></div>
+                    <div class="">
+                    <h4 class="uppercase font-semibold font-['Nato'] text-lg">VISION:</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        {{settings.vision}}
+                    </p></div>
+                    <div class="">
+                    <h4 class="uppercase font-semibold font-['Nato'] text-lg">Core Values:</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        1. Integrity<br>
+                        2. Equity<br>
+                        3. Resilience<br>
+                        4. Empathy<br>
+                        5. Professionalism<br>
+                        6. Collaboration<br>
+
+                    </p></div>
+                    <div class="">
+                    <h4 class="uppercase font-semibold font-['Nato'] text-lg">Focus Areas:</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        1. Empowerment Skills & Education for Development <br>
+                        2. Sports for Development & Talent Management<br>
+                        3. Financial Literacy<br>
+                        4. Mental Health & Wellness  <br>
+                        5. First Aid Training as a Life Skill<br>
+                    </p>
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Core, mission, vision -->
+
+    <section class="block md:hidden text-center">
+        <div class="md:px-20 space-y-3 px-3">
+            <h4 class="uppercase font-semibold font-['Nato'] text-lg">CORE PURPOSE:</h4>
+            <p class="text-gray-500 font=['Barlow'] py-2">
+                {{settings.core}}
+            </p>
+            <h4 class="uppercase font-semibold font-['Nato'] text-lg">MISSION:</h4>
+            <p class="text-gray-500 font=['Barlow'] py-2">
+                {{settings.mission}}
+            </p>
+            <h4 class="uppercase font-semibold font-['Nato'] text-lg">VISION:</h4>
+            <p class="text-gray-500 font=['Barlow'] py-2">
+                {{settings.vision}}
+            </p>
+            
+        </div>
+    </section>
+
+
+    <section class="md:py-5">
+        <div class="px-3 md:px-20 py-6 flex flex-col justify-center items-center text-center">
+            <h4 class="font-bold text-3xl md:text-4xl font-['nato'] py-3">What Makes Us <span class="text-[#3172C6]">Different</span></h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex flex-col justify-center space-y-4 items-center rounded-bl-3xl rounded-tr-3xl shadow-lg bg-white py-12 px-4">
+                    <i class="fa-solid fa-circle-check text-[#3172C6] fa-2x"></i>
+                    <h4 class=" font-semibold font-['Nato'] text-2xl">Passionate Leadership Team.</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        Our team is driven by a shared passion for social justice, human rights, and sustainable development. We are dedicated, compassionate, and relentless in our pursuit of a more equitable and just world for all.
+                    </p>
+                </div>
+                <div class="flex flex-col justify-center space-y-4 items-center rounded-bl-3xl rounded-tr-3xl shadow-lg bg-white py-12 px-4">
+                    <i class="fa-solid fa-circle-check text-[#3172C6] fa-2x"></i>
+                    <h4 class=" font-semibold font-['Nato'] text-2xl">Strategic Partnership.</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        - County Governments <br>
+                        - Corporate Partners <br>
+                        - Local/International NGOs <br>
+                        - UN Agencies <br>
+                    </p>
+                </div>
+                <div class="flex flex-col justify-center space-y-4 items-center rounded-bl-3xl rounded-tr-3xl shadow-lg bg-white py-12 px-4">
+                    <i class="fa-solid fa-circle-check text-[#3172C6] fa-2x"></i>
+                    <h4 class=" font-semibold font-['Nato'] text-2xl">Inclusive Engagement.</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        We believe in the power of diversity and inclusion. We actively engage with communities, stakeholders, and partners from all backgrounds, ensuring that our programs are relevant, responsive, and respectful of the unique needs and perspectives of those we serve.
+                    </p>
+                </div>
+                <div class="flex flex-col justify-center space-y-4 items-center rounded-bl-3xl rounded-tr-3xl shadow-lg bg-white py-12 px-4">
+                    <i class="fa-solid fa-circle-check text-[#3172C6] fa-2x"></i>
+                    <h4 class=" font-semibold font-['Nato'] text-2xl">Reliable Programs.</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        Trust is at the core of everything we do. We understand the importance of credibility, reliability, and integrity when it comes to the programs we offer. Our commitment to transparency, accountability, and excellence ensures that our programs are trusted by individuals, communities, and partners alike.
+                    </p>
+                </div>
+                <div class="flex flex-col justify-center space-y-4 items-center rounded-bl-3xl rounded-tr-3xl shadow-lg bg-white py-12 px-4">
+                    <i class="fa-solid fa-circle-check text-[#3172C6] fa-2x"></i>
+                    <h4 class=" font-semibold font-['Nato'] text-2xl">Impactful Solutions.</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        Our focus is not just on good intentions, but on tangible results. We measure our success by the real-world impact we achieve, implementing evidence-based strategies and rigorous evaluation to ensure that every initiative makes a difference.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col justify-center space-y-4 items-center rounded-bl-3xl rounded-tr-3xl shadow-lg bg-white py-12 px-4">
+                    <i class="fa-solid fa-circle-check text-[#3172C6] fa-2x"></i>
+                    <h4 class=" font-semibold font-['Nato'] text-2xl">Transparency and Accountability.</h4>
+                    <p class="text-gray-500 font=['Barlow'] py-2">
+                        We are committed to transparency, integrity, and accountability in everything we do. We operate with the highest standards of governance and financial stewardship, ensuring that every donation is used effectively and efficiently to advance our mission.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
